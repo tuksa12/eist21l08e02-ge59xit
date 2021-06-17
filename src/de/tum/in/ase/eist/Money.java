@@ -22,12 +22,18 @@ public class Money {
 
 	public Money add(Money money) {
 		// TODO Task 1: what happens if the currencies are different?
+		if (this.currency != money.currency()) {
+			throw new IllegalArgumentException("Different currencies not supported!");
+		}
 		return new Money(amount() + money.amount(), currency());
 	}
 
 	public Money subtract(Money money) {
 		// TODO Task 1: implement this method
-		throw new UnsupportedOperationException("Method not implemented yet");
+		if (this.currency != money.currency()) {
+			throw new IllegalArgumentException("Different currencies not supported!");
+		}
+		return new Money(amount() - money.amount(), currency());
 	}
 
 	@Override
